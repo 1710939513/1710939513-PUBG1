@@ -1,4 +1,4 @@
-﻿const appData = {
+const appData = {
   autoRefresh: true,
   refreshInterval: 1000,
   gsTime: 0,
@@ -49,25 +49,25 @@ vapp = new Vue({
     showHead3: true,
     showFirstAid: true,
     showMedKit: true,
-    showDrink: false,
+    showDrink: true,
     showGrenade: true,
     showSmokeBomb: false,
     showAmmo556: false,
     showAmmo762: false,
     showForeGrip: false,
-    showLowST: false,
+    showLowST: true,
     showHighST: true,
-    showARCnFH: false,
+    showARCnFH: true,
     showARSuppressor: true,
-    showARExtended: false,
-    showARStock: false,
-    showSRFlashHider: false,
+    showARExtended: true,
+    showARStock: true,
+    showSRFlashHider: true,
     showSRSuppressor: true,
-    showSRExtended: false,
-    showSRStock: false,
+    showSRExtended: true,
+    showSRStock: true,
     showM16A4: true,
     showSCAR: true,
-    showAK47: false,
+    showAK47: true,
     showHK416: true,
     showPan: true,
     showMini14: false,
@@ -216,7 +216,7 @@ vapp = new Vue({
   methods: {
     toggleRefresh () {
       if (appData.autoRefresh) {
-        appData.autoRefresh = true
+        appData.autoRefresh = false
         this.toggleButtonText = 'Start Refresh'
       } else {
         appData.autoRefresh = true
@@ -224,7 +224,7 @@ vapp = new Vue({
       }
     },
     setFPS (fps) {
-      appData.refreshInterval = Math.floor(1000 / fps)
+      appData.refreshInterval = Math.floor(60 / fps)
     },
     showNoItems () {
       this.showItemAll = this.showItemDuoDuo = this.showItemTop = this.showItemBasic = this.showItemAR = this.showItemSR = this.showItemHealth = this.showItemThrow = this.showItemAmmo = this.showItemAll = false
@@ -859,7 +859,3 @@ const updatePlayerLocs = () => {
 // Let's start
 showMap(false)
 setTimeout(updatePlayerLocs, appData.refreshInterval)
-
-// testing testing
-// appData.showingPlayers.set(1, { loc: [1000, 1000, 0, 270] })
-// appData.showingPlayers.set(2, { loc: [2000, 2000, 0, 270] })
